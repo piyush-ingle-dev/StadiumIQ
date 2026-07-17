@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Staff Tasks{% endblock %}
+{% block content %}
+<section aria-labelledby="staff-heading">
+    <h1 id="staff-heading">Staff task board</h1>
+    <form id="task-filter-form">
+        <div class="form-group">
+            <label for="filter-zone">View tasks for zone</label>
+            <input type="text" id="filter-zone" name="zone" placeholder="e.g. Gate C" required>
+        </div>
+        <button type="submit" class="btn btn-secondary">Load tasks</button>
+    </form>
+    <div id="task-list" role="region" aria-live="polite" aria-label="Task list"></div>
+
+    <h2>Create a task</h2>
+    <form id="create-task-form">
+        <div class="form-group">
+            <label for="task-title">Title</label>
+            <input type="text" id="task-title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="task-zone">Zone</label>
+            <input type="text" id="task-zone" name="zone" required>
+        </div>
+        <div class="form-group">
+            <label for="task-priority">Priority</label>
+            <select id="task-priority" name="priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="task-description">Description</label>
+            <textarea id="task-description" name="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create task</button>
+    </form>
+    <div id="create-task-result" role="status" aria-live="polite"></div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/staff.js') }}" defer></script>
+{% endblock %}

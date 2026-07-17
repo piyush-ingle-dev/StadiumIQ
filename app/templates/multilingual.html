@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Translate{% endblock %}
+{% block content %}
+<section aria-labelledby="translate-heading">
+    <h1 id="translate-heading">Multilingual assistance</h1>
+    <form id="translate-form">
+        <div class="form-group">
+            <label for="source-text">Text to translate</label>
+            <textarea id="source-text" name="text" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="target-language">Target language</label>
+            <select id="target-language" name="target_language">
+                {% for lang in languages %}
+                <option value="{{ lang }}">{{ lang | upper }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Translate</button>
+    </form>
+    <div id="translate-result" role="status" aria-live="polite" class="result-box"></div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/multilingual.js') }}" defer></script>
+{% endblock %}

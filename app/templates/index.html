@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>Your AI guide for FIFA World Cup 2026 stadiums</h1>
+    <p>
+        Navigation, crowd safety alerts, transport advice, multilingual help,
+        staff coordination, and sustainability tracking, all in one place.
+    </p>
+    <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ url_for('auth.register') }}">Get started</a>
+        <a class="btn btn-secondary" href="{{ url_for('auth.login') }}">Log in</a>
+    </div>
+</section>
+
+<section class="feature-grid" aria-label="Platform features">
+    <article class="feature-card">
+        <h2>Navigation</h2>
+        <p>Step-by-step directions between gates, concourses, and seating sections.</p>
+    </article>
+    <article class="feature-card">
+        <h2>Crowd safety</h2>
+        <p>Real-time density readings so fans and staff avoid overcrowded zones.</p>
+    </article>
+    <article class="feature-card">
+        <h2>Transport</h2>
+        <p>Recommendations for the fastest and lowest-emission way to reach the venue.</p>
+    </article>
+    <article class="feature-card">
+        <h2>Multilingual support</h2>
+        <p>Instant translation in English, Hindi, Arabic, Spanish, and French.</p>
+    </article>
+    <article class="feature-card">
+        <h2>Staff coordination</h2>
+        <p>Task boards for volunteers to track operational work by zone.</p>
+    </article>
+    <article class="feature-card">
+        <h2>Sustainability</h2>
+        <p>Estimated CO2e tracking across electricity, water, waste, and transport.</p>
+    </article>
+    <article class="feature-card">
+        <h2>Live operational intelligence</h2>
+        <p>A real-time control-room dashboard streaming crowd, task, and sustainability data, with an AI-generated briefing on what to prioritize right now.</p>
+    </article>
+</section>
+{% endblock %}

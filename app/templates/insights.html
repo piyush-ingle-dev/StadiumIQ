@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Live Operations{% endblock %}
+{% block content %}
+<section aria-labelledby="insights-heading">
+    <h1 id="insights-heading">Live operational intelligence</h1>
+    <p>
+        A single, continuously updating view of crowd risk, open tasks, and
+        sustainability totals, for real-time decision-making during the match.
+    </p>
+
+    <div id="connection-status" role="status" aria-live="polite" class="form-hint">
+        Connecting to live feed…
+    </div>
+
+    <section aria-labelledby="briefing-heading">
+        <h2 id="briefing-heading">Current briefing</h2>
+        <div id="briefing-text" class="result-box" role="status" aria-live="polite">
+            Loading briefing…
+        </div>
+    </section>
+
+    <section aria-labelledby="live-snapshot-heading">
+        <h2 id="live-snapshot-heading">Live snapshot</h2>
+        <dl id="snapshot-list" class="snapshot-grid" aria-live="polite">
+            <dt>Zones needing attention</dt>
+            <dd id="snapshot-zones">—</dd>
+            <dt>Open tasks</dt>
+            <dd id="snapshot-tasks">—</dd>
+            <dt>Estimated emissions (kg CO2e)</dt>
+            <dd id="snapshot-emissions">—</dd>
+            <dt>Last updated</dt>
+            <dd id="snapshot-updated">—</dd>
+        </dl>
+    </section>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/insights.js') }}" defer></script>
+{% endblock %}

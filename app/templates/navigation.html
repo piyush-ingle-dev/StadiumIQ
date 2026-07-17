@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Navigation{% endblock %}
+{% block content %}
+<section aria-labelledby="nav-heading">
+    <h1 id="nav-heading">Find your way</h1>
+    <form id="nav-form">
+        <div class="form-group">
+            <label for="from-zone">Current location</label>
+            <input type="text" id="from-zone" name="from" placeholder="e.g. Gate B" required>
+        </div>
+        <div class="form-group">
+            <label for="to-zone">Destination</label>
+            <input type="text" id="to-zone" name="to" placeholder="e.g. Section 114" required>
+        </div>
+        <div class="form-group">
+            <label for="nav-language">Language</label>
+            <select id="nav-language" name="language">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="ar">Arabic</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Get directions</button>
+    </form>
+    <div id="nav-result" role="status" aria-live="polite" class="result-box"></div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/navigation.js') }}" defer></script>
+{% endblock %}

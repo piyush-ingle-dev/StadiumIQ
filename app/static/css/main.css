@@ -1,0 +1,283 @@
+/* StadiumIQ base styles.
+   Design goals: sufficient color contrast (WCAG AA, 4.5:1 minimum),
+   visible focus states for keyboard navigation, and no information
+   conveyed by color alone (density/status also shown as text). */
+
+:root {
+    --color-bg: #0f1720;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-primary: #0b5cab;
+    --color-primary-dark: #073e73;
+    --color-accent: #1a7f4e;
+    --color-danger: #b3261e;
+    --color-warning: #8a5a00;
+    --focus-ring: 3px solid #ffbf47;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--color-text);
+    background: #f4f6f8;
+    line-height: 1.5;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--color-primary-dark);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+}
+
+.site-header {
+    background: var(--color-primary-dark);
+}
+
+.primary-nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+}
+
+.brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.brand span {
+    color: #ffbf47;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #e7edf3;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.hero {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.65rem 1.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+    background: #fff;
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: var(--color-surface);
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.flash-region {
+    margin-bottom: 1.5rem;
+}
+
+.flash {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.flash-success {
+    background: #e3f5ea;
+    color: #14532d;
+}
+
+.flash-error {
+    background: #fbe9e7;
+    color: var(--color-danger);
+}
+
+.flash-info {
+    background: #e7f1fb;
+    color: var(--color-primary-dark);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    max-width: 420px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #98a2b3;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: #475467;
+    margin: 0.25rem 0 0;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: var(--color-surface);
+}
+
+.data-table th, .data-table td {
+    text-align: left;
+    padding: 0.65rem 0.8rem;
+    border-bottom: 1px solid #e4e7ec;
+}
+
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: 1px solid currentColor;
+}
+
+.badge-low { color: var(--color-accent); }
+.badge-moderate { color: var(--color-warning); }
+.badge-high, .badge-critical { color: var(--color-danger); }
+
+.alert-list {
+    list-style: none;
+    padding: 0;
+}
+
+.alert-item {
+    padding: 0.75rem 1rem;
+    border-left: 5px solid var(--color-warning);
+    background: #fff8ec;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.alert-item.alert-critical {
+    border-left-color: var(--color-danger);
+    background: #fdecea;
+}
+
+.result-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--color-surface);
+    border-radius: 6px;
+    min-height: 1.5rem;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #667085;
+    font-size: 0.9rem;
+}
+
+.snapshot-grid {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.4rem 1rem;
+    background: var(--color-surface);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+}
+
+.snapshot-grid dt {
+    font-weight: 600;
+    color: #475467;
+}
+
+.snapshot-grid dd {
+    margin: 0;
+    font-weight: 700;
+}
